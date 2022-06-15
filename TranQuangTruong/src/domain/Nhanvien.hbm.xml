@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 3, 2022 7:32:25 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Nhanvien" table="nhanvien" catalog="dbduan" optimistic-lock="version">
+        <id name="manv" type="string">
+            <column name="manv" length="100" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="duan" class="domain.Duan" fetch="select">
+            <column name="mada" not-null="true" />
+        </many-to-one>
+        <property name="tennv" type="string">
+            <column name="tennv" length="100" not-null="true" />
+        </property>
+        <property name="ngaysinh" type="date">
+            <column name="ngaysinh" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
